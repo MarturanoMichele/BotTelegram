@@ -22,8 +22,9 @@ public class LibreriaTelegram {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         TelegramApi a =new TelegramApi();
-        a.test2();
+        a.test3("ciao","lu");
+        
     }
 }
