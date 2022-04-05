@@ -10,9 +10,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONObject;
@@ -59,7 +61,20 @@ public class TelegramApi {
         URLConnection con = url.openConnection();
         InputStream is = new BufferedInputStream(con.getInputStream());
     }
-    public void test4(){
+    
+    public void getJson() throws IOException{
+        String temp = "";
+        URL url = new URL("https://api.telegram.org/bot" + "chiaveBotTG" + "/getUpdates");
         
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+        conn.connect();
+        if (conn.getResponseCode() == 200) {//200 indica che la richiesta è andata a buon fine
+            Scanner scan = new Scanner(url.openStream());
+            while (scan.hasNext()) {
+                temp += scan.nextLine();
+            }
+        }
+        JSONObject json = new JSONObject(temp);
     }
 }
