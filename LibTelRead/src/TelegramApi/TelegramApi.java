@@ -29,7 +29,7 @@ public class TelegramApi {
         System.out.println("sono la libreria");
     }
 
-    public void test2() {
+    public void jsonParser() {
         String jsonString = "{ciao:'lucaIlPesciolino'}";
         JSONObject obj = new JSONObject(jsonString);
         String ciao = obj.getString("ciao");
@@ -52,7 +52,7 @@ public class TelegramApi {
 
     }
 
-    public void test3(String id, String message) throws MalformedURLException, IOException {
+    public void sendMessage(String id, String message) throws MalformedURLException, IOException {
         id="196356323";
         message="istria";
         URL url = new URL("https://api.telegram.org/bot" + botKey + "/sendMessage?chat_id=" + id + "&text=" + message);

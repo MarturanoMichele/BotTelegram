@@ -24,7 +24,7 @@ public class LibreriaTelegram {
      */
     public static void main(String[] args) throws IOException {
         TelegramApi a =new TelegramApi();
-        a.test3("ciao","lu");
+        a.sendMessage("ciao","lu");
         
     }
 }
